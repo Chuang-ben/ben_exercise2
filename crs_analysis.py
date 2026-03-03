@@ -10,9 +10,43 @@ import json
 from datetime import datetime
 import os
 from dotenv import load_dotenv
+import matplotlib.font_manager as fm
 
 # 加载环境变量
 load_dotenv()
+
+# 设置中文字体
+def setup_chinese_font():
+    """设置中文字体支持"""
+    available_fonts = [f.name for f in fm.fontManager.ttflist]
+    
+    # 常见的中文字体
+    chinese_fonts = [
+        'Microsoft JhengHei',  # 微软正黑体 (Windows)
+        'Microsoft YaHei',     # 微软雅黑 (Windows)  
+        'SimHei',              # 黑体 (Windows)
+        'SimSun',              # 宋体 (Windows)
+        'PingFang SC',         # 苹方 (macOS)
+        'Hiragino Sans GB',    # 冬青黑体 (macOS)
+        'Noto Sans CJK TC',    # 思源黑体 (跨平台)
+        'Source Han Sans TC'    # 思源黑体 (跨平台)
+    ]
+    
+    # 找到可用的中文字体
+    for font in chinese_fonts:
+        if font in available_fonts:
+            plt.rcParams['font.sans-serif'] = [font] + plt.rcParams['font.sans-serif']
+            plt.rcParams['axes.unicode_minus'] = False
+            print(f"使用中文字体: {font}")
+            return font
+    
+    # 如果没有找到中文字体，使用默认字体并显示警告
+    print("警告: 未找到中文字体，图表可能显示方框")
+    print("可用字体:", [f for f in available_fonts if 'Chinese' in f or 'Sans' in f][:10])
+    return None
+
+# 设置字体
+setup_chinese_font()
 
 class WeatherStationCRSAnalysis:
     def __init__(self):
