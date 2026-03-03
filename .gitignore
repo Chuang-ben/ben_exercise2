@@ -34,11 +34,8 @@ ENV/
 *.swp
 *.swo
 
-# 資料檔案
+# 原始資料檔案（保留，但允許輸出檔案）
 data/*.csv
-output/*.html
-output/*.png
-output/*.csv
 
 # 系統檔案
 .DS_Store
