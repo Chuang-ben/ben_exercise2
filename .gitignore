@@ -1,0 +1,45 @@
+# 環境變數檔案
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 虛擬環境
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 資料檔案
+data/*.csv
+output/*.html
+output/*.png
+output/*.csv
+
+# 系統檔案
+.DS_Store
+Thumbs.db
